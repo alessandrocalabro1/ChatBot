@@ -95,8 +95,9 @@ function App() {
           <button onClick={() => setInput("Chi è Alessandro?")} className="quick-btn">Profilo</button>
           <button onClick={() => setInput("Esperienza lavorativa")} className="quick-btn">Esperienza</button>
           <button onClick={() => setInput("Stack tecnologico")} className="quick-btn">Tech Stack</button>
-          <button onClick={() => setInput("Formazione")} className="quick-btn">Formazione</button>
-          <button onClick={() => setInput("Interessi personali")} className="quick-btn">Interessi</button>
+          <button onClick={() => setInput("Che lingue parla?")} className="quick-btn">Lingue</button>
+          <button onClick={() => setInput("Quali sono le soft skill?")} className="quick-btn">Soft Skills</button>
+          <button onClick={() => setInput("Interessi e hobby")} className="quick-btn">Interessi</button>
         </div>
 
         {/* Input */}

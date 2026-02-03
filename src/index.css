@@ -113,6 +113,21 @@ body {
   box-shadow: 0 0 10px var(--primary-glow);
   position: relative;
   flex-shrink: 0;
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 10px var(--primary-glow);
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--primary), 0 0 10px var(--secondary);
+  }
+
+  100% {
+    box-shadow: 0 0 10px var(--primary-glow);
+  }
 }
 
 .avatar::after {

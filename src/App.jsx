@@ -6,7 +6,7 @@ import './index.css';
 
 function App() {
   const [messages, setMessages] = useState([
-    { id: 1, text: "Ciao! 👋 Sono l'assistente virtuale di Alessandro Calabrò. Sono qui per raccontarti quanto sia bravo (e un po' nerd). Chiedimi pure!", sender: 'bot' }
+    { id: 1, text: "Benvenuto! 👋 Sono l'assistente virtuale del portfolio di Alessandro. Posso illustrarti le sue esperienze professionali, i progetti sviluppati e le competenze tecniche. Chiedimi pure!", sender: 'bot' }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -93,9 +93,9 @@ function App() {
         {/* Suggestions (Quick Actions) */}
         <div className="quick-actions">
           <button onClick={() => setInput("Chi sei?")} className="quick-btn">Chi sei?</button>
-          <button onClick={() => setInput("Esperienza lavorativa")} className="quick-btn">Lavoro</button>
-          <button onClick={() => setInput("Quali skill hai?")} className="quick-btn">Skills</button>
-          <button onClick={() => setInput("Hobby e passioni")} className="quick-btn">Personal</button>
+          <button onClick={() => setInput("Esperienza lavorativa")} className="quick-btn">Esperienze</button>
+          <button onClick={() => setInput("Competenze SAP e Web")} className="quick-btn">Competenze</button>
+          <button onClick={() => setInput("Progetti recenti")} className="quick-btn">Progetti</button>
           <button onClick={() => setInput("Contatti")} className="quick-btn">Contatti</button>
         </div>
 

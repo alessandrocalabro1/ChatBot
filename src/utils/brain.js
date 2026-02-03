@@ -7,44 +7,49 @@ const DATA = {
         age: 30, // Born 1995
         location: "Roma",
         companies: ["Mashfrog Group", "Abstract", "Indra/Minsait"],
-        education: "Sociologia alla Sapienza & Diploma Scientifico",
-        email: "alessandro.calabro@example.com" // Placeholder/Privacy
+        education: "Laurea in Sociologia (Sapienza) & Diploma Scientifico",
+        email: "alessandro.calabro@example.com" // Placeholder
     },
     work_deep_dive: {
-        mashfrog: "In **Mashfrog Group** (2024-Oggi), Alessandro è un **SAP BTP Consultant**. Si occupa di sviluppo app Enterprise (UI5, Build, AppGyver) e supporta il PMO nella gestione risorse e reporting. Un vero jolly! 🃏",
-        abstract: "Da **Abstract** (2023-2024), ha lavorato per **Luxottica**. Ha creato app per la gestione ordini di acquisto usando SAP Build e UI5. Frontend puro e duro.",
-        indra: "In **Indra/Minsait** (2020-2023) ha lavorato per **Enel Green Power**. Qui si è fatto le ossa su SAP Fiori, gestendo contratti di vendita e approvazioni ordini. Roba seria."
+        mashfrog: "In **Mashfrog Group** (2024-Oggi), Alessandro ricopre il ruolo di **SAP BTP Consultant**. Si dedica allo sviluppo di applicazioni Enterprise innovative (utilizzando UI5, SAP Build, AppGyver) e supporta il PMO nelle attività di gestione risorse, reporting e analisi dati.",
+        abstract: "Presso **Abstract** (2023-2024), ha operato come consulente per **Luxottica**. Ha progettato e sviluppato applicazioni custom per l'ottimizzazione della gestione degli ordini di acquisto, sfruttando le potenzialità di SAP Build e SAP UI5.",
+        indra: "In **Indra/Minsait** (2020-2023) ha collaborato con **Enel Green Power**. Ha maturato una significativa esperienza su **SAP Fiori**, gestendo il ciclo di vita dei contratti di vendita e i flussi approvativi degli ordini."
     },
     tech_stack: {
-        sap: "Il suo pane quotidiano: **SAP Fiori, SAP UI5, SAP Build, AppGyver, BTP**. Se c'è 'SAP' nel nome, probabilmente lo sa usare.",
-        frontend: "Lato web classico se la cava alla grande con **JavaScript, TypeScript, HTML5, CSS** e framework come **Angular 2+**. E ovviamente sa centrare un div.",
-        tools: "Usa **Git** per il versionamento e la suite Office per tutto il resto."
+        sap: "**SAP Ecosystem**: Esperto in SAP Fiori, SAP UI5, SAP Build Apps (AppGyver) e SAP BTP. Specializzato nella creazione di interfacce utente intuitive per processi aziendali complessi.",
+        frontend: "**Web Development**: Solida conoscenza di JavaScript (ES6+), TypeScript, HTML5, CSS3. Esperienza con framework moderni come React, Angular e strumenti di versionamento come Git.",
+        tools: "**Tools & Methodologies**: Agile/Scrum, Git, VS Code, SAP Business Application Studio."
+    },
+    projects: {
+        overview: "Alessandro ha lavorato su diversi progetti personali e professionali interessanti. Tra i i più recenti ci sono **Card Invest**, **CAL Service** e ovviamente questo **Portfolio Interattivo**.",
+        card_invest: "**Card Invest**: Una web app avanzata per il tracciamento e l'analisi degli investimenti in carte collezionabili, dotata di dashboard analitiche.",
+        cal_service: "**CAL Service**: Un portale moderno 'mobile-first' per servizi di manutenzione (idraulica, elettrica), focalizzato sulla lead generation e UX premium.",
+        chatbot: "**Portfolio Chatbot**: L'assistente con cui stai parlando! Un esempio pratico di React e logica conversazionale custom."
     },
     personal: {
-        fun_facts: "Curiosità? Nasce il **18/07/1995**. Ha fatto le scuole elementari nelle **Filippine** (sì, davvero!). È fidanzato con Martina da 13 anni (un santo o un eroe, decidi tu).",
-        hobbies: "Nel tempo libero fa **CrossFit** 🏋️‍♂️, viaggia (Giappone e Madagascar recenti) e colleziona **carte Pokémon**.",
-        juve: "Purtroppo (o per fortuna?) è un tifoso della **Juventus**. 🦓"
+        fun_facts: "Classe '95. Una curiosità: ha frequentato le scuole elementari nelle **Filippine**, un'esperienza che gli ha aperto la mente sin da piccolo. Condivide la vita con Martina da oltre 13 anni.",
+        hobbies: "Nel tempo libero si dedica al **CrossFit** 🏋️‍♂️ con costanza, ama viaggiare (con mete recenti come Giappone e Madagascar) e coltiva la passione per il collezionismo (TCG).",
+        juve: "Segue con passione il calcio ed è un sostenitore della **Juventus**."
     }
 };
 
 // Advanced Phrase Matching
-// We use regex for smarter matching (handling plurals, variations, etc.)
 const INTENTS = [
     // GREETINGS & BASICS
     {
         id: 'greeting',
         regex: /^(ciao|salve|buongiorno|buonasera|hey|hi|hello|start|inizio)/i,
         responses: [
-            "Ciao! 👋 Sono il clone digitale di Alessandro. Chiedimi del suo lavoro, delle sue skill o dei suoi hobby!",
-            "Ehilà! Pronto a rispondere a tutte le tue curiosità su Alessandro Calabrò. Da dove iniziamo?"
+            "Benvenuto/a! 👋 Sono l'assistente virtuale di Alessandro. Posso illustrarti il suo percorso professionale, le sue competenze tecniche o i suoi progetti.",
+            "Buongiorno! Sono qui per offrirti una panoramica completa sul profilo di Alessandro Calabrò. Come posso esserti utile?"
         ]
     },
     {
         id: 'identity',
         regex: /(chi sei|chi e alessandro|presentati|parlami di te|profilo|chi è)/i,
         responses: [
-            "Alessandro Calabrò, classe '95, è uno sviluppatore SAP Frontend e Consultant. Nato nelle Filippine (scolasticamente parlando), vive a Roma e trasforma il caffè in codice SAP UI5.",
-            "Sono l'assistente di Alessandro! Lui è un SAP BTP Consultant con la passione per il frontend e... per i Pokémon. 🤓"
+            "Alessandro Calabrò è un **SAP BTP Consultant** e **Frontend Developer** basato a Roma. Unisce competenze tecniche solide in ambito SAP a una passione per lo sviluppo web moderno.",
+            "Sono l'assistente digitale del portfolio. Alessandro è un professionista classe '95 specializzato in soluzioni SAP e sviluppo Frontend, con un background in Sociologia che arricchisce la sua visione dei processi."
         ]
     },
 
@@ -53,8 +58,8 @@ const INTENTS = [
         id: 'work_general',
         regex: /(lavoro|esperienz|carriera|curriculum|cv|cosa fa|dove lavora|impiego|ruolo)/i,
         responses: [
-            "Alessandro ha una solida esperienza nel mondo SAP. Attualmente è in **Mashfrog Group**, ma ha lavorato anche in **Abstract** (Luxottica) e **Indra** (Enel). Vuoi dettagli su un'azienda specifica?",
-            "Si occupa principalmente di sviluppo Frontend in ambiente SAP (UI5, Fiori, Build). Attualmente è Consultant in Mashfrog."
+            "Alessandro vanta un percorso professionale in ascesa nel mondo della consulenza IT. Attualmente è in **Mashfrog Group**, dopo esperienze significative in **Abstract** (Luxottica) e **Indra** (Enel Green Power).",
+            "Il suo focus principale è lo sviluppo Frontend in ambiente SAP (UI5, Fiori, Build). Attualmente opera come Consultant presso Mashfrog Group. Vuoi approfondire un'esperienza specifica?"
         ]
     },
     {
@@ -78,17 +83,37 @@ const INTENTS = [
         id: 'skills_sap',
         regex: /(sap|ui5|fiori|btp|cloud|build|appgyver)/i,
         responses: [
-            `In ambito SAP è ferratissimo: ${DATA.tech_stack.sap}. Ha lavorato su integrazioni complesse e app enterprise.`,
-            "SAP è il suo regno. UI5, Fiori, BTP... se è frontend SAP, Alessandro c'è."
+            DATA.tech_stack.sap,
+            "Nel mondo SAP, Alessandro ha competenze verticali su **Fiori** e **UI5**, estendendosi fino alla **Business Technology Platform (BTP)** e strumenti low-code come **SAP Build Apps**."
         ]
     },
     {
         id: 'skills_web',
-        regex: /(javascript|js|typescript|angular|css|html|react|web|sviluppo|code|codice)/i,
+        regex: /(javascript|js|typescript|angular|css|html|react|web|sviluppo|code|codice|stack)/i,
         responses: [
-            `Oltre a SAP, conosce bene lo stack web moderno: ${DATA.tech_stack.frontend}.`,
-            "È un frontend developer versatile: JS, TS, Angular... gli piace creare interfacce pulite e reattive."
+            DATA.tech_stack.frontend,
+            "Il suo background tecnico include una forte padronanza dello stack web standard: **JavaScript/TypeScript**, **HTML5/CSS3** e librerie come **React**."
         ]
+    },
+
+    // PROJECTS (NEW)
+    {
+        id: 'projects_general',
+        regex: /(progett|poprtfolio|lavori|realizzazioni|app|siti)/i,
+        responses: [
+            DATA.projects.overview + " Chiedimi pure dettagli su uno di questi!",
+            "Oltre al lavoro di consulenza, Alessandro sviluppa progetti per affinare le sue skill. **Card Invest** e questo **Chatbot** sono ottimi esempi."
+        ]
+    },
+    {
+        id: 'project_cardinvest',
+        regex: /(card|invest|pokemon|carte)/i,
+        responses: [DATA.projects.card_invest]
+    },
+    {
+        id: 'project_calservice',
+        regex: /(cal|service|idraulico|sito)/i,
+        responses: [DATA.projects.cal_service]
     },
 
     // PERSONAL & HOBBIES
@@ -98,91 +123,57 @@ const INTENTS = [
         responses: [DATA.personal.hobbies]
     },
     {
-        id: 'pokemon',
-        regex: /(pokemon|carte|collezion)/i,
-        responses: [
-            "Sì! È un collezionista di carte Pokémon. 🎴 Se vuoi parlargli di Charizard, hai trovato l'argomento giusto."
-        ]
-    },
-    {
         id: 'travel',
         regex: /(viaggi|giappone|madagascar|mondo|vacanze)/i,
         responses: [
-            "Ama viaggiare! ✈️ Nel 2024 ha visitato il Giappone e il Madagascar. Mica male eh?"
+            "Il viaggio è una componente fondamentale. Di recente ha esplorato il **Giappone** e il **Madagascar**, esperienze che uniscono cultura e avventura. ✈️"
         ]
     },
     {
         id: 'sport',
         regex: /(sport|crossfit|palestra|allenamento)/i,
         responses: [
-            "Alessandro pratica CrossFit. 🏋️‍♂️ Quindi sì, probabilmente proverà a convincerti a farlo."
+            "Per mantenere l'equilibrio tra mente e corpo, Alessandro pratica **CrossFit** con dedizione. Un modo efficace per scaricare lo stress da codice!"
         ]
     },
     {
         id: 'football',
         regex: /(calcio|squadra|tifa|tifoso|juve|juventus)/i,
-        responses: [
-            DATA.personal.juve,
-            "Il suo cuore è bianconero. Tifa Juventus! 🏳️🏴"
-        ]
-    },
-    {
-        id: 'dog',
-        regex: /(cane|animale|reiner)/i,
-        responses: [
-            "Ha un cane di nome **Reiner**! 🐶 È il vero capo di casa."
-        ]
-    },
-    {
-        id: 'girlfriend',
-        regex: /(fidanzata|moglie|relazione|martina|single)/i,
-        responses: [
-            "È fidanzatissimo con **Martina** da quasi 13 anni. Una storia leggendaria!"
-        ]
+        responses: [DATA.personal.juve]
     },
 
-    // EDUCATION
+    // EDUCATION & CONTACT
     {
         id: 'education',
-        regex: /(studio|scuola|universit|laurea|diploma|formazione|filippine)/i,
+        regex: /(studio|scuola|universit|laurea|diploma|formazione)/i,
         responses: [
-            `🎓 Laurea in Sociologia alla Sapienza (grande fan di Durkheim) e diploma scientifico.\nCuriosità: ha fatto elementari e medie nelle **Filippine** dalle suore! 🌏`
+            `🎓 ${DATA.profile.education}. Un percorso che unisce logica scientifica e comprensione delle dinamiche sociali.`
         ]
     },
-
-    // CONTACT
     {
         id: 'contact',
         regex: /(contatt|email|telefono|chiamare|scrivere|linkedin)/i,
         responses: [
-            "La privacy prima di tutto! Ma sono sicuro che se cerchi 'Alessandro Calabrò' su LinkedIn lo trovi subito. 😉"
+            "Puoi trovare Alessandro su **LinkedIn** per connessioni professionali. È sempre disponibile per discutere di nuove opportunità o progetti innovativi."
         ]
     },
 
     // FOLLOW UP & GENERIC
     {
-        id: 'more_info',
-        regex: /(argomenta|spiega meglio|dettagli|dimmi di più|approfondisci|ancora|continua)/i,
-        responses: [
-            "Certamente! Su quale aspetto in particolare? Posso approfondire i progetti in Mashfrog, le tecnologie SAP usate o magari il suo viaggio in Giappone?",
-            "Volentieri! Cosa ti incuriosisce di più? La sua carriera SAP o le sue passioni da 'nerd'?"
-        ]
-    },
-    {
         id: 'thanks',
-        regex: /(grazie|grande|bravo|ottimo|top|gentile)/i,
+        regex: /(grazie|grande|bravo|ottimo|top|gentile|complimenti)/i,
         responses: [
-            "È un piacere! 😎",
-            "Di nulla! Sono qui apposta.",
-            "Grazie a te! Se serve altro, sono qui."
+            "Grazie a te! È un piacere mostrarti il mio portfolio.",
+            "Felice di essere stato utile.",
+            "Grazie! Se hai altre domande su Alessandro, sono qui."
         ]
     },
     {
         id: 'insults',
         regex: /(stupido|scemo|inutile|bot|cattivo|brutto)/i,
         responses: [
-            "Ehi, ho dei sentimenti anche io... anche se sono scritti in JavaScript. 😢",
-            "Sono solo un chatbot in versione beta, abbi pietà! 🙏"
+            "Il mio obiettivo è fornire informazioni utili in modo professionale. Se c'è qualcosa che posso migliorare, fammelo sapere.",
+            "Capisco la frustrazione, ma sono qui per aiutarti a conoscere meglio il profilo di Alessandro."
         ]
     }
 ];
@@ -204,33 +195,31 @@ export const getBotResponse = (input, context = {}) => {
         }
     }
 
-    // 2. Context-Aware Fallback (rudimentary)
-    // If user asks "argomenta" but we missed it in regex above (unlikely) or just random text
+    // 2. Context-Aware Fallback
     if (context.lastIntent) {
         if (context.lastIntent.startsWith('work')) {
             return {
-                text: "Stavamo parlando di lavoro. Vuoi sapere nello specifico cosa ha fatto in Mashfrog o Abstract?",
+                text: "Stavamo parlando delle esperienze professionali. Ti interessano dettagli su Mashfrog, Abstract o Indra/Minsait?",
                 context: context
             };
         }
-        if (context.lastIntent === 'hobbies') {
+        if (context.lastIntent === 'projects_general') {
             return {
-                text: "Riguardo agli hobby... sapevi che colleziona carte Pokémon rare?",
+                text: "Vuoi sapere di più su Card Invest o su come è stato costruito questo sito?",
                 context: context
             };
         }
     }
 
-    // 3. Generic Fallbacks (Smart conversational filler)
+    // 3. Generic Fallbacks (Professional)
     const fallbacks = [
-        "Interessante! 🤔 Ma dimmi di più su cosa cerchi: Skill tecniche o vita vissuta?",
-        "Non sono sicuro di aver capito (colpa del mio codice!), ma se chiedi di SAP o della Juventus vado sul sicuro!",
-        "Mmh, questo esula dal mio database. Però posso dirti che Alessandro fa un ottimo tiramisù... no aspetta, quello non è nel JSON.",
-        "Bip bip 🤖. Domanda complessa! Proviamo con: 'Esperienza lavorativa' o 'Hobby'?"
+        "Interessante. Posso darti maggiori dettagli sulle competenze tecniche di Alessandro o sui suoi progetti recenti?",
+        "Non sono sicuro di aver colto il punto. Prova a chiedermi 'Cosa fa Alessandro?' o 'Quali sono le sue skill?'.",
+        "Al momento non ho questa informazione nel mio database, ma posso parlarti della sua esperienza in ambito SAP o dei suoi hobby."
     ];
 
     return {
         text: pick(fallbacks),
-        context: context // keep old context
+        context: context
     };
 };

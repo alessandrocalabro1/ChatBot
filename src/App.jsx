@@ -6,7 +6,7 @@ import './index.css';
 
 function App() {
   const [messages, setMessages] = useState([
-    { id: 1, text: "Benvenuto! 👋 Sono l'assistente virtuale del portfolio di Alessandro. Posso illustrarti le sue esperienze professionali, i progetti sviluppati e le competenze tecniche. Chiedimi pure!", sender: 'bot' }
+    { id: 1, text: "Salve. Sono un'assistente AI addestrata sul profilo professionale di Alessandro Calabrò. Sono qui per rispondere a domande riguardo il suo percorso lavorativo, le competenze tecniche (SAP/Web) e il background formativo.", sender: 'bot' }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -64,11 +64,11 @@ function App() {
         {/* Header */}
         <div className="chat-header">
           <div className="avatar">
-            <span style={{ fontSize: '24px' }}>🧑‍💻</span>
+            <span style={{ fontSize: '24px' }}>🤖</span>
           </div>
           <div className="header-info">
-            <h1>Alessandro Calabrò</h1>
-            <p>SAP BTP & Frontend Dev</p>
+            <h1>Alessandro Calabrò AI</h1>
+            <p>Assistant Profile</p>
           </div>
         </div>
 
@@ -92,11 +92,11 @@ function App() {
 
         {/* Suggestions (Quick Actions) */}
         <div className="quick-actions">
-          <button onClick={() => setInput("Chi sei?")} className="quick-btn">Chi sei?</button>
-          <button onClick={() => setInput("Esperienza lavorativa")} className="quick-btn">Esperienze</button>
-          <button onClick={() => setInput("Competenze SAP e Web")} className="quick-btn">Competenze</button>
-          <button onClick={() => setInput("Progetti recenti")} className="quick-btn">Progetti</button>
-          <button onClick={() => setInput("Contatti")} className="quick-btn">Contatti</button>
+          <button onClick={() => setInput("Chi è Alessandro?")} className="quick-btn">Profilo</button>
+          <button onClick={() => setInput("Esperienza lavorativa")} className="quick-btn">Esperienza</button>
+          <button onClick={() => setInput("Stack tecnologico")} className="quick-btn">Tech Stack</button>
+          <button onClick={() => setInput("Formazione")} className="quick-btn">Formazione</button>
+          <button onClick={() => setInput("Interessi personali")} className="quick-btn">Interessi</button>
         </div>
 
         {/* Input */}

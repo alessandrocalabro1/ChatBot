@@ -64,7 +64,7 @@ function App() {
         {/* Header */}
         <div className="chat-header">
           <div className="avatar">
-            <span style={{ fontSize: '24px' }}>🤖</span>
+            <span>🤖</span>
           </div>
           <div className="header-info">
             <h1>Alessandro Calabrò AI</h1>
